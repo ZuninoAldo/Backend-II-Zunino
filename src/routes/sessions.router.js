@@ -8,10 +8,18 @@ router.post('/register', passport.authenticate('register', { session: false, fai
 
 router.post('/login', passport.authenticate('login', { session: false, failureRedirect: '/faillogin' }), sessionsController.login);
 
+router.post('/forgot-password', sessionsController.forgotPassword);
+
+// RUTA PARA RENDERIZAR LA VISTA DE RESETEO 
+router.get('/reset-password-view/:token', sessionsController.resetPasswordView);
+// RUTA PARA PROCESAR LA NUEVA CONTRASEÑA
+router.post('/reset-password/:token', sessionsController.resetPassword);
+
 router.get('/current', passport.authenticate('jwt', { session: false }), sessionsController.current);
 
-router.get('/failregister', (req, res) => res.status(400).send({ status: "error", error: "Register failed" }));
-router.get('/faillogin', (req, res) => res.status(400).send({ status: "error", error: "Login failed" }));
+router.get('/failregister', (req, res) => res.status(400).send({ status: "error", error: "El intento de registro falló" }));
+
+router.get('/faillogin', (req, res) => res.status(400).send({ status: "error", error: "El intento de ingresar falló" }));
 
 
 export default router;

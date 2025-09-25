@@ -38,62 +38,77 @@
 
 [![](https://visitcount.itsvg.in/api?id=ZuninoAldo&icon=2&color=13)](https://visitcount.itsvg.in)
 
-# ProyectoAngularFinal
+Backend de E-commerce - Entrega Final
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+Este proyecto es el backend para una aplicación de e-commerce, desarrollado con Node.js, Express y MongoDB. Implementa una arquitectura por capas profesional, gestión de usuarios con autenticación y autorización por roles (JWT y Passport), y una lógica de compra completa.
 
-## Development server
+🚀 Cómo Iniciar el Proyecto
 
-To start a local development server, run:
+Sigue estos pasos para levantar el servidor en tu entorno local.
 
-```bash
-ng serve
-```
+Requisitos Previos
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Asegúrate de tener instalado el siguiente software:
 
-## Code scaffolding
+Node.js (versión 16 o superior recomendada)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+npm (generalmente se instala con Node.js)
 
-```bash
-ng generate component component-name
-```
+MongoDB o una cuenta de MongoDB Atlas para la base de datos.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Postman o un cliente API similar para probar los endpoints.
 
-```bash
-ng generate --help
-```
+1. Clonar el Repositorio
 
-## Building
+Bash
 
-To build the project run:
+git clone https://github.com/ZuninoAldo/Backend-II-Zunino
 
-```bash
-ng build
-```
+cd nombre-de-tu-repo
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+2. Instalar Dependencias
 
-## Running unit tests
+Ejecuta el siguiente comando para instalar todos los paquetes necesarios definidos en package.json.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Bash
 
-```bash
-ng test
-```
+npm install
 
-## Running end-to-end tests
+3. Configuración de Variables de Entorno
 
-For end-to-end (e2e) testing, run:
+Este proyecto utiliza variables de entorno para manejar datos sensibles como las credenciales de la base de datos y los secretos de autenticación.
 
-```bash
-ng e2e
-```
+Puedes solicitarlas al creador del proyecto mediante los medios de comunicación disponibles en el proyecto y en el perfil de GitHub.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+4. Ejecutar el Servidor
+Una vez configurado, puedes iniciar el servidor con el siguiente comando:
 
-## Additional Resources
+Bash
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+npm start
+
+O si tienes un script de desarrollo (ej: con nodemon):
+
+Bash
+
+npm run dev
+
+El servidor estará corriendo en http://localhost:PUERTO, donde PUERTO es el valor que definiste en tu archivo .env.
+
+5. Probar los Endpoints
+Usa Postman para interactuar con la API. Algunos de los endpoints principales son:
+
+POST /api/sessions/register - Para registrar un nuevo usuario.
+
+POST /api/sessions/login - Para iniciar sesión y obtener el token JWT.
+
+GET /api/sessions/current - Para verificar los datos del usuario logueado.
+
+POST /api/products - Para crear un producto (requiere rol de admin).
+
+POST /api/carts/:cid/product/:pid - Para agregar un producto al carrito (requiere rol de user).
+
+POST /api/carts/:cid/purchase - Para finalizar una compra.
+
+Muchas Gracias.
+ZuninoAldo.

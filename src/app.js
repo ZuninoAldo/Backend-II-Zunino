@@ -7,13 +7,15 @@ import initializatePassport from './config/passport.config.js';
 import connectDB from './config/database.js';
 import usersRouter from './routes/users.router.js';
 import sessionsRouter from './routes/sessions.router.js';
+import productsRouter from './routes/products.router.js';
+import cartsRouter from './routes/carts.router.js';
 
 dotenv.config();
 connectDB();
 initializatePassport();
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(cookieParser());
@@ -21,5 +23,7 @@ app.use(passport.initialize());
 
 app.use('/api/users',usersRouter);
 app.use('/api/sessions',sessionsRouter);
+app.use('/api/products', productsRouter);
+app.use('/api/carts', cartsRouter);
 
 app.listen(PORT,()=>console.log(`Listening on ${PORT}`))
