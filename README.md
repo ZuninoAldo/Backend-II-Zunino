@@ -110,5 +110,13 @@ POST /api/carts/:cid/product/:pid - Para agregar un producto al carrito (requier
 
 POST /api/carts/:cid/purchase - Para finalizar una compra.
 
+DOCKER
+
+https://hub.docker.com/repository/docker/zuninoaldo/backend-proyecto/general
+
+GITHUB REPOSITORY
+
+https://github.com/ZuninoAldo/Backend-II-Zunino
+
 Muchas Gracias.
 ZuninoAldo.
